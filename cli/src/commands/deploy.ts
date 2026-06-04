@@ -41,5 +41,5 @@ export async function deployPage(
   if (!index.includes(name)) index.push(name);
   await kvPut(config, "__index__", JSON.stringify(index));
 
-  return `https://${name}.${config.domain}`;
+  return `https://${name}-${config.domain}`;
 }

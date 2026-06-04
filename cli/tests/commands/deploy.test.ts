@@ -69,7 +69,7 @@ describe("deployPage", () => {
 
   it("returns the deployed URL", async () => {
     const url = await deployPage(config, "test.html", "my-page", false);
-    expect(url).toBe("https://my-page.html.dharmin.xyz");
+    expect(url).toBe("https://my-page-html.dharmin.xyz");
   });
 
   it("throws on invalid name", async () => {

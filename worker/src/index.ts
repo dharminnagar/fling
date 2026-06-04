@@ -17,10 +17,10 @@ export async function handleRequest(req: Request, kv: KVNamespace, domain: strin
     return html(renderIndex(pages, domain));
   }
 
-  if (!hostname.endsWith(`.${domain}`)) {
+  if (!hostname.endsWith(`-${domain}`)) {
     return html("<h1>400 — Bad Request</h1>", 400);
   }
-  const slug = hostname.slice(0, hostname.indexOf(`.${domain}`));
+  const slug = hostname.slice(0, hostname.lastIndexOf(`-${domain}`));
   const content = await getHtml(kv, slug);
   if (content === null) {
     return html(

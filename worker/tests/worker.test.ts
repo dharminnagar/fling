@@ -18,14 +18,14 @@ const DOMAIN = "html.dharmin.xyz";
 describe("Worker handleRequest", () => {
   it("returns 404 for unknown subdomain", async () => {
     const kv = makeKV();
-    const res = await handleRequest(new Request("https://missing.html.dharmin.xyz/"), kv, DOMAIN);
+    const res = await handleRequest(new Request("https://missing-html.dharmin.xyz/"), kv, DOMAIN);
     expect(res.status).toBe(404);
     expect(res.headers.get("content-type")).toContain("text/html");
   });
 
   it("serves HTML for known slug", async () => {
     const kv = makeKV({ foo: "<h1>Hello</h1>" });
-    const res = await handleRequest(new Request("https://foo.html.dharmin.xyz/"), kv, DOMAIN);
+    const res = await handleRequest(new Request("https://foo-html.dharmin.xyz/"), kv, DOMAIN);
     expect(res.status).toBe(200);
     expect(await res.text()).toBe("<h1>Hello</h1>");
     expect(res.headers.get("content-type")).toContain("text/html");
@@ -38,7 +38,7 @@ describe("Worker handleRequest", () => {
     expect(res.status).toBe(200);
     const body = await res.text();
     expect(body).toContain("foo");
-    expect(body).toContain("foo.html.dharmin.xyz");
+    expect(body).toContain("foo-html.dharmin.xyz");
     expect(body).toContain("2026-01-01");
   });
 

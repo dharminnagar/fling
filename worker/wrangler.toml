@@ -11,5 +11,5 @@ pattern = "html.dharmin.xyz/*"
 zone_name = "dharmin.xyz"
 
 [[routes]]
-pattern = "*.html.dharmin.xyz/*"
+pattern = "*-html.dharmin.xyz/*"
 zone_name = "dharmin.xyz"

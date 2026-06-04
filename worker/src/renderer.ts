@@ -16,7 +16,7 @@ export function renderIndex(pages: PageMeta[], domain: string): string {
           .map(
             (p) => `
     <div style="padding:12px 0;border-bottom:1px solid #eee">
-      <a href="https://${escapeHtml(p.name)}.${escapeHtml(domain)}" style="font-size:1.05em;font-weight:600;color:#0066cc">${escapeHtml(p.name)}</a>
+      <a href="https://${escapeHtml(p.name)}-${escapeHtml(domain)}" style="font-size:1.05em;font-weight:600;color:#0066cc">${escapeHtml(p.name)}</a>
       <span style="color:#666;margin-left:12px;font-size:0.9em">${escapeHtml(p.filename)}</span>
       <span style="color:#aaa;margin-left:12px;font-size:0.85em">${escapeHtml(p.deployedAt.slice(0, 10))}</span>
     </div>`
