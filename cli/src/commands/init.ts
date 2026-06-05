@@ -6,7 +6,7 @@ import type { Config } from "../types.js";
 export async function runInit(): Promise<void> {
   const rl = readline.createInterface({ input, output });
 
-  console.log("Setting up htmlup...\n");
+  console.log("Setting up fling...\n");
   console.log("Create a Cloudflare API token with Workers KV Edit + DNS Edit permissions.");
   console.log("dash.cloudflare.com → Profile → API Tokens → Create Token\n");
 
@@ -21,6 +21,6 @@ export async function runInit(): Promise<void> {
   const config: Config = { apiToken, accountId, kvNamespaceId, domain };
   await writeConfig(config);
 
-  console.log(`\nConfig saved to ~/.config/htmlup/config.json`);
-  console.log(`Test with: htmlup list`);
+  console.log(`\nConfig saved to ~/.config/fling/config.json`);
+  console.log(`Test with: fling list`);
 }

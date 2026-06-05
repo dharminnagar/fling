@@ -3,7 +3,7 @@ import { promises as fs } from "node:fs";
 import * as os from "node:os";
 import * as path from "node:path";
 
-const tmpDir = path.join(os.tmpdir(), `htmlup-test-${process.pid}`);
+const tmpDir = path.join(os.tmpdir(), `fling-test-${process.pid}`);
 
 vi.mock("node:os", async (importOriginal) => {
   const actual = await importOriginal<typeof os>();
@@ -14,7 +14,7 @@ const { readConfig, writeConfig } = await import("../src/config.js");
 
 describe("config", () => {
   beforeEach(async () => {
-    await fs.mkdir(path.join(tmpDir, ".config", "htmlup"), { recursive: true });
+    await fs.mkdir(path.join(tmpDir, ".config", "fling"), { recursive: true });
   });
 
   afterEach(async () => {

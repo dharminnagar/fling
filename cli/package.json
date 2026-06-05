@@ -1,9 +1,9 @@
 {
-  "name": "htmlup",
+  "name": "fling",
   "version": "1.0.0",
   "type": "module",
   "bin": {
-    "htmlup": "./dist/index.js"
+    "fling": "./dist/index.js"
   },
   "scripts": {
     "build": "tsup",

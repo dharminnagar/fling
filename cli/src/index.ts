@@ -8,7 +8,7 @@ import { openPage } from "./commands/open.js";
 
 const program = new Command();
 
-program.name("htmlup").description("Deploy HTML files to Cloudflare").version("1.0.0");
+program.name("fling").description("Deploy HTML files to Cloudflare").version("1.0.0");
 
 program
   .command("init")
@@ -23,7 +23,7 @@ program
   .option("-f, --force", "Overwrite if name already exists")
   .action(async (file: string, name: string, opts: { force?: boolean }) => {
     const config = await readConfig();
-    if (!config) return console.error("No config found. Run: htmlup init");
+    if (!config) return console.error("No config found. Run: fling init");
     try {
       const url = await deployPage(config, file, name, opts.force ?? false);
       console.log(`✓ ${url}`);
@@ -38,7 +38,7 @@ program
   .description("List all deployed pages")
   .action(async () => {
     const config = await readConfig();
-    if (!config) return console.error("No config found. Run: htmlup init");
+    if (!config) return console.error("No config found. Run: fling init");
     try {
       const pages = await listPages(config);
       if (pages.length === 0) return console.log("No pages deployed yet.");
@@ -57,7 +57,7 @@ program
   .description("Delete a deployed page")
   .action(async (name: string) => {
     const config = await readConfig();
-    if (!config) return console.error("No config found. Run: htmlup init");
+    if (!config) return console.error("No config found. Run: fling init");
     try {
       await deletePage(config, name);
       console.log(`Deleted ${name}`);
@@ -72,7 +72,7 @@ program
   .description("Open a deployed page in your browser")
   .action(async (name: string) => {
     const config = await readConfig();
-    if (!config) return console.error("No config found. Run: htmlup init");
+    if (!config) return console.error("No config found. Run: fling init");
     openPage(config, name);
   });
 

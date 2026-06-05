@@ -3,7 +3,7 @@ import * as os from "node:os";
 import * as path from "node:path";
 import type { Config } from "./types.js";
 
-export const CONFIG_PATH = path.join(os.homedir(), ".config", "htmlup", "config.json");
+export const CONFIG_PATH = path.join(os.homedir(), ".config", "fling", "config.json");
 
 export async function readConfig(): Promise<Config | null> {
   try {
