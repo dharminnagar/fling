@@ -1,15 +1,34 @@
 {
-  "name": "fling",
+  "name": "@dharmin/fling",
   "version": "1.0.0",
+  "description": "Deploy a single HTML file to your Cloudflare subdomain in one command",
   "type": "module",
   "bin": {
     "fling": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
     "link": "npm run build && npm link"
   },
+  "keywords": [
+    "cloudflare",
+    "deploy",
+    "html",
+    "cli",
+    "static",
+    "hosting"
+  ],
+  "author": "Dharmin Nagar <dharminnagar@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dharmin/fling"
+  },
+  "homepage": "https://github.com/dharmin/fling#readme",
   "dependencies": {
     "commander": "^12.0.0"
   },
