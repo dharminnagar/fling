@@ -18,7 +18,7 @@ fling deploy index.html my-page
 ### Install
 
 ```bash
-npm install -g @dharmin/fling
+npm install -g @dharminnagar/fling
 ```
 
 ### Configure
