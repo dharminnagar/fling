@@ -1,5 +1,5 @@
 {
-  "name": "fling",
+  "name": "@dharminnagar/fling",
   "version": "1.0.0",
   "description": "Deploy a single HTML file to your Cloudflare subdomain in one command",
   "type": "module",
