@@ -5,6 +5,7 @@ import { deployPage } from "./commands/deploy.js";
 import { listPages } from "./commands/list.js";
 import { deletePage } from "./commands/delete.js";
 import { openPage } from "./commands/open.js";
+import { pullPage } from "./commands/pull.js";
 
 const program = new Command();
 
@@ -74,6 +75,21 @@ program
     const config = await readConfig();
     if (!config) return console.error("No config found. Run: fling init");
     openPage(config, name);
+  });
+
+program
+  .command("pull <name>")
+  .description("Download a deployed page to a local file")
+  .option("-o, --output <path>", "output file path (default: <name>.html)")
+  .action(async (name: string, opts: { output?: string }) => {
+    const config = await readConfig();
+    if (!config) return console.error("No config found. Run: fling init");
+    try {
+      await pullPage(config, name, opts.output);
+    } catch (e) {
+      console.error((e as Error).message);
+      process.exit(1);
+    }
   });
 
 program.parse();
